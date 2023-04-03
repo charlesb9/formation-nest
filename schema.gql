@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 input CreateUserInput {
-  age: Float!
+  age: Float
   firstName: String!
   lastName: String!
 }
@@ -15,10 +15,18 @@ scalar DateTime
 
 type Mutation {
   createUser(input: CreateUserInput!): User!
+  updateUser(input: UpdateUserInput!): User!
 }
 
 type Query {
   findUsers: [User!]!
+}
+
+input UpdateUserInput {
+  _id: String!
+  age: Float
+  firstName: String
+  lastName: String
 }
 
 type User {

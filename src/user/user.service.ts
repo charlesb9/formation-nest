@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { CreateUserInput } from "./models/create-user.input";
+import { UpdateUserInput } from "./models/update-user.input";
 import { User } from "./models/user.model";
 
 @Injectable()
@@ -22,7 +23,7 @@ export class UserService {
 		return await this.userModel.create(input);
 	}
 
-	async update(input: User) {
+	async update(input: UpdateUserInput) {
 		return await this.userModel.findOneAndUpdate({ _id : input._id }, input, {returnOriginal : false});
 	}
 

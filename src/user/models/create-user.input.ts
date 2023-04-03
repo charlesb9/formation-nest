@@ -9,7 +9,7 @@ export class CreateUserInput {
 	@Field()
 	lastName: string;
 
-	@Field()
+	@Field({nullable: true})
 	age?: number;
 
 }
